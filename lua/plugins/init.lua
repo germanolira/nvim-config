@@ -151,7 +151,6 @@ require("nvim-treesitter.configs").setup({
     "tsx",
     "lua",
     "json",
-    "jsonc",
     "yaml",
     "toml",
     "gitignore",
@@ -249,7 +248,7 @@ local on_attach = function(_, bufnr)
   end, bufopts)
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
