@@ -26,7 +26,7 @@ Modern Neovim configuration with Lua, optimized for TypeScript/JavaScript develo
   - Better indentation
   - Incremental selection
 - **LSP**: Built-in LSP with mason
-  - TypeScript/JavaScript (tsserver)
+  - TypeScript/JavaScript (ts_ls)
   - Lua (lua_ls)
   - JSON (jsonls)
   - YAML (yamlls)
@@ -133,7 +133,7 @@ nvim
 - Markdown
 
 ### Pre-configured LSPs
-- tsserver (TypeScript/JavaScript)
+- ts_ls (TypeScript/JavaScript)
 - lua_ls (Lua)
 - jsonls (JSON)
 - yamlls (YAML)
