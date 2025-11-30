@@ -192,7 +192,6 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
 mason.setup()
-mason_lspconfig.setup()
 
 mason_lspconfig.setup({
   ensure_installed = {
@@ -237,78 +236,77 @@ local on_attach = function(_, bufnr)
   end, bufopts)
 end
 
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-  end,
-  ["tsserver"] = function()
-    lspconfig.tsserver.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        typescript = {
-          format = {
-            insertSpaceAfterCommaDelimiter = true,
-            insertSpaceAfterSemicolonInForStatements = true,
-            insertSpaceBeforeAndAfterBinaryOperators = true,
-            insertSpaceAfterConstructor = false,
-            insertSpaceAfterKeywordsInControlFlowStatements = true,
-            insertSpaceAfterFunctionKeywordForAnonymousFunctions = false,
-            insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-            insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
-            insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces = false,
-            insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = false,
-            insertSpaceAfterTypeAssertion = false,
-            placeOpenBraceOnNewLineForFunctions = false,
-            placeOpenBraceOnNewLineForControlBlocks = false,
-          },
-        },
-        javascript = {
-          format = {
-            insertSpaceAfterCommaDelimiter = true,
-            insertSpaceAfterSemicolonInForStatements = true,
-            insertSpaceBeforeAndAfterBinaryOperators = true,
-            insertSpaceAfterConstructor = false,
-            insertSpaceAfterKeywordsInControlFlowStatements = true,
-            insertSpaceAfterFunctionKeywordForAnonymousFunctions = false,
-            insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-            insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
-            insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces = false,
-            insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = false,
-            insertSpaceAfterTypeAssertion = false,
-            placeOpenBraceOnNewLineForFunctions = false,
-            placeOpenBraceOnNewLineForControlBlocks = false,
-          },
-        },
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    typescript = {
+      format = {
+        insertSpaceAfterCommaDelimiter = true,
+        insertSpaceAfterSemicolonInForStatements = true,
+        insertSpaceBeforeAndAfterBinaryOperators = true,
+        insertSpaceAfterConstructor = false,
+        insertSpaceAfterKeywordsInControlFlowStatements = true,
+        insertSpaceAfterFunctionKeywordForAnonymousFunctions = false,
+        insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+        insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+        insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces = false,
+        insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = false,
+        insertSpaceAfterTypeAssertion = false,
+        placeOpenBraceOnNewLineForFunctions = false,
+        placeOpenBraceOnNewLineForControlBlocks = false,
       },
-    })
-  end,
-  ["lua_ls"] = function()
-    lspconfig.lua_ls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          runtime = {
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false,
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
+    },
+    javascript = {
+      format = {
+        insertSpaceAfterCommaDelimiter = true,
+        insertSpaceAfterSemicolonInForStatements = true,
+        insertSpaceBeforeAndAfterBinaryOperators = true,
+        insertSpaceAfterConstructor = false,
+        insertSpaceAfterKeywordsInControlFlowStatements = true,
+        insertSpaceAfterFunctionKeywordForAnonymousFunctions = false,
+        insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+        insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+        insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces = false,
+        insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = false,
+        insertSpaceAfterTypeAssertion = false,
+        placeOpenBraceOnNewLineForFunctions = false,
+        placeOpenBraceOnNewLineForControlBlocks = false,
       },
-    })
-  end,
+    },
+  },
+})
+
+lspconfig.lua_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+
+lspconfig.jsonls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 local cmp = require("cmp")
