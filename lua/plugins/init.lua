@@ -139,11 +139,237 @@ require("lazy").setup({
     opts = {},
   },
 
-  {
-    "numToStr/Comment.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {},
-  },
+    {
+      "numToStr/Comment.nvim",
+      event = { "BufReadPost", "BufNewFile" },
+      opts = {},
+    },
+
+    {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      opts = {
+        open_mapping = [[<C-`>]],
+        direction = "float",
+        float_opts = {
+          border = "rounded",
+          width = function() return math.floor(vim.o.columns * 0.9) end,
+          height = function() return math.floor(vim.o.lines * 0.8) end,
+        },
+        shade_terminals = true,
+        start_in_insert = true,
+        insert_mappings = true,
+        terminal_mappings = true,
+        persist_size = true,
+        close_on_exit = true,
+        shell = vim.fn.executable("zsh") == 1 and "zsh" or "bash",
+      },
+      keys = {
+        { "<C-`>", "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
+        { "<C-\\>", "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "Toggle horizontal terminal" },
+      },
+    },
+
+    {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      opts = {
+        open_mapping = [[<C-`>]],
+        direction = "float",
+        float_opts = {
+          border = "rounded",
+          width = function() return math.floor(vim.o.columns * 0.9) end,
+          height = function() return math.floor(vim.o.lines * 0.8) end,
+        },
+        shade_terminals = true,
+        start_in_insert = true,
+        insert_mappings = true,
+        terminal_mappings = true,
+        persist_size = true,
+        close_on_exit = true,
+        shell = vim.fn.executable("zsh") == 1 and "zsh" or "bash",
+      },
+      keys = {
+        { "<C-`>", "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
+        { "<C-\\>", "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "Toggle horizontal terminal" },
+      },
+    },
+
+    {
+      "romgrk/barbar.nvim",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      init = function()
+        vim.g.barbar_auto_setup = false
+      end,
+      opts = {
+        animation = true,
+        insert_at_start = true,
+        letters = "asdfjkl;ghzxcvbnmiaeoruqtwpcy",
+        no_name_title = nil,
+        sidebar_filetypes = {
+          NvimTree = true,
+          undotree = { text = "Undotree" },
+          diff = { text = "Diff" },
+          fugitive = { text = "Fugitive" },
+          fugitiveblame = { text = "Blame" },
+        },
+        exclude_filetypes = {
+          "netrw",
+          "toggleterm",
+        },
+      },
+      keys = {
+        { "<C-Tab>", "<Cmd>BufferNext<CR>", desc = "Next buffer" },
+        { "<C-S-Tab>", "<Cmd>BufferPrevious<CR>", desc = "Previous buffer" },
+        { "<C-w>", "<Cmd>BufferClose<CR>", desc = "Close buffer" },
+        { "<C-1>", "<Cmd>BufferGoto 1<CR>", desc = "Go to buffer 1" },
+        { "<C-2>", "<Cmd>BufferGoto 2<CR>", desc = "Go to buffer 2" },
+        { "<C-3>", "<Cmd>BufferGoto 3<CR>", desc = "Go to buffer 3" },
+        { "<C-4>", "<Cmd>BufferGoto 4<CR>", desc = "Go to buffer 4" },
+        { "<C-5>", "<Cmd>BufferGoto 5<CR>", desc = "Go to buffer 5" },
+        { "<C-6>", "<Cmd>BufferGoto 6<CR>", desc = "Go to buffer 6" },
+        { "<C-7>", "<Cmd>BufferGoto 7<CR>", desc = "Go to buffer 7" },
+        { "<C-8>", "<Cmd>BufferGoto 8<CR>", desc = "Go to buffer 8" },
+        { "<C-9>", "<Cmd>BufferGoto 9<CR>", desc = "Go to buffer 9" },
+        { "<C-0>", "<Cmd>BufferLast<CR>", desc = "Go to last buffer" },
+      },
+    },
+
+    {
+      "romgrk/barbar.nvim",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      init = function()
+        vim.g.barbar_auto_setup = false
+      end,
+      opts = {
+        animation = true,
+        insert_at_start = true,
+        letters = "asdfjkl;ghzxcvbnmiaeoruqtwpcy",
+        no_name_title = nil,
+        sidebar_filetypes = {
+          NvimTree = true,
+          undotree = { text = "Undotree" },
+          diff = { text = "Diff" },
+          fugitive = { text = "Fugitive" },
+          fugitiveblame = { text = "Blame" },
+        },
+        exclude_filetypes = {
+          "netrw",
+          "toggleterm",
+        },
+      },
+      keys = {
+        { "<C-Tab>", "<Cmd>BufferNext<CR>", desc = "Next buffer" },
+        { "<C-S-Tab>", "<Cmd>BufferPrevious<CR>", desc = "Previous buffer" },
+        { "<C-w>", "<Cmd>BufferClose<CR>", desc = "Close buffer" },
+        { "<C-1>", "<Cmd>BufferGoto 1<CR>", desc = "Go to buffer 1" },
+        { "<C-2>", "<Cmd>BufferGoto 2<CR>", desc = "Go to buffer 2" },
+        { "<C-3>", "<Cmd>BufferGoto 3<CR>", desc = "Go to buffer 3" },
+        { "<C-4>", "<Cmd>BufferGoto 4<CR>", desc = "Go to buffer 4" },
+        { "<C-5>", "<Cmd>BufferGoto 5<CR>", desc = "Go to buffer 5" },
+        { "<C-6>", "<Cmd>BufferGoto 6<CR>", desc = "Go to buffer 6" },
+        { "<C-7>", "<Cmd>BufferGoto 7<CR>", desc = "Go to buffer 7" },
+        { "<C-8>", "<Cmd>BufferGoto 8<CR>", desc = "Go to buffer 8" },
+        { "<C-9>", "<Cmd>BufferGoto 9<CR>", desc = "Go to buffer 9" },
+        { "<C-0>", "<Cmd>BufferLast<CR>", desc = "Go to last buffer" },
+      },
+    },
+
+    {
+      "folke/trouble.nvim",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      cmd = { "Trouble" },
+      keys = {
+        { "<C-S-m>", "<Cmd>Trouble diagnostics toggle<CR>", desc = "Toggle problems panel" },
+        { "<leader>xx", "<Cmd>Trouble diagnostics toggle<CR>", desc = "Problems (all)" },
+        { "<leader>xw", "<Cmd>Trouble workspace_diagnostics toggle<CR>", desc = "Workspace diagnostics" },
+        { "<leader>xd", "<Cmd>Trouble document_diagnostics toggle<CR>", desc = "Document diagnostics" },
+        { "<leader>xq", "<Cmd>Trouble quickfix toggle<CR>", desc = "Quickfix" },
+        { "<leader>xl", "<Cmd>Trouble loclist toggle<CR>", desc = "Loclist" },
+        { "gR", "<Cmd>Trouble lsp_references toggle<CR>", desc = "LSP references" },
+      },
+      opts = {
+        mode = "diagnostics",
+        action_keys = {
+          open = { "<CR>", "o" },
+          close = { "<C-q>", "q", "<Esc>" },
+          cancel = "<Esc>",
+          refresh = "r",
+          jump = { "<CR>", "<C-o>", "o" },
+          jump_close = { "e" },
+        },
+        indent_lines = true,
+        auto_open = false,
+        auto_close = false,
+        auto_preview = true,
+        auto_fold = false,
+        auto_jump = { "first" },
+        signs = {
+          error = "✗",
+          warning = "⚠",
+          hint = "💡",
+          information = "ℹ",
+          other = "•",
+        },
+        use_diagnostic_signs = true,
+      },
+    },
+
+    {
+      "stevearc/conform.nvim",
+      event = { "BufWritePre" },
+      cmd = { "ConformInfo" },
+      keys = {
+        {
+          "<leader>lf",
+          function()
+            require("conform").format({ async = true, lsp_format = "fallback" })
+          end,
+          mode = "",
+          desc = "Format file",
+        },
+      },
+      opts = {
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { "prettierd", "prettier", "biome" },
+          typescript = { "prettierd", "prettier", "biome" },
+          javascriptreact = { "prettierd", "prettier", "biome" },
+          typescriptreact = { "prettierd", "prettier", "biome" },
+          json = { "jq", "prettier" },
+          yaml = { "yamlfmt" },
+          markdown = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
+          sql = { "sqlfmt" },
+          python = { "black", "ruff" },
+          rust = { "rustfmt" },
+          go = { "gofmt" },
+          java = { "google-java-format" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        },
+        format_after_save = {
+          lsp_format = "fallback",
+        },
+        notify_on_error = true,
+        default_format_opts = {
+          async = false,
+          quiet = false,
+          lsp_format = "fallback",
+        },
+      },
+    },
 })
 
 vim.cmd.colorscheme("catppuccin")

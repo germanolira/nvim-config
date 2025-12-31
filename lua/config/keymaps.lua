@@ -28,6 +28,10 @@ keymap.set("n", "<C-p>", function()
   })
 end, opts)
 
+keymap.set("n", "<C-S-p>", function()
+  require("telescope.builtin").commands()
+end, opts)
+
 keymap.set("n", "<C-h>", "<C-w>h", opts)
 keymap.set("n", "<C-j>", "<C-w>j", opts)
 keymap.set("n", "<C-k>", "<C-w>k", opts)
@@ -66,10 +70,11 @@ keymap.set("i", "<C-_>", function() require("Comment.api").toggle.linewise.curre
 keymap.set("n", "<leader>d", '"_d', opts)
 keymap.set("v", "<leader>d", '"_d', opts)
 
-keymap.set("n", "<C-Tab>", ":bnext<CR>", opts)
-keymap.set("n", "<C-S-Tab>", ":bprevious<CR>", opts)
-keymap.set("i", "<C-Tab>", "<Esc>:bnext<CR>a", opts)
-keymap.set("i", "<C-S-Tab>", "<Esc>:bprevious<CR>a", opts)
+keymap.set("n", "<C-Tab>", ":BufferNext<CR>", opts)
+keymap.set("n", "<C-S-Tab>", ":BufferPrevious<CR>", opts)
+keymap.set("n", "<C-w>", ":BufferClose<CR>", opts)
+keymap.set("i", "<C-Tab>", "<Esc>:BufferNext<CR>a", opts)
+keymap.set("i", "<C-S-Tab>", "<Esc>:BufferPrevious<CR>a", opts)
 
 keymap.set("n", "<C-down>", ":m .+1<CR>==", opts)
 keymap.set("n", "<C-up>", ":m .-2<CR>==", opts)
@@ -77,3 +82,6 @@ keymap.set("i", "<C-down>", "<Esc>:m .+1<CR>==gi", opts)
 keymap.set("i", "<C-up>", "<Esc>:m .-2<CR>==gi", opts)
 keymap.set("v", "<C-down>", ":m '>+1<CR>gv=gv", opts)
 keymap.set("v", "<C-up>", ":m '<-2<CR>gv=gv", opts)
+
+keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
+keymap.set("n", "<C-S-b>", ":NvimTreeFocus<CR>", opts)

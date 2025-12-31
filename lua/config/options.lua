@@ -36,3 +36,13 @@ vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.showmode = false
 vim.opt.ruler = false
+
+vim.opt.cursorline = true
+vim.opt.mouse = "a"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.hidden = true
+vim.opt.confirm = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.autowriteall = true
+vim.opt.autoread = true
