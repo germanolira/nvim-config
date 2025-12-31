@@ -1,0 +1,13 @@
+# Neovim
+lazy-lock.json
+luac.out
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.backup
+*.swap
+*.swp
+*.tmp
